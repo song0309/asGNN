@@ -110,10 +110,10 @@ if __name__ == '__main__':
         hidden_channels = int(GNN_params[0])
         lr = float(GNN_params[1])
         print(f'best learning rate: {lr} and best number of hidden channels: {hidden_channels}')
-        best_model_path = os.path.join(output_path, 'GNN_hyperparams_tunning_best_model.pt')
+        best_model_path = os.path.join(output_path, 'GNN_hyperparams_tuning_best_model.pt')
     else:
-        if not os.path.exists(os.path.join(output_path, 'GNN_hyperparams_tunning')):
-            os.makedirs(os.path.join(output_path, 'GNN_hyperparams_tunning'))
+        if not os.path.exists(os.path.join(output_path, 'GNN_hyperparams_tuning')):
+            os.makedirs(os.path.join(output_path, 'GNN_hyperparams_tuning'))
         
         # Find best hyperparameters for GTN backbone 
         num_classes = 250
@@ -159,7 +159,7 @@ if __name__ == '__main__':
                     best_hidden_channels = hidden_channels
                     best_model=copy.deepcopy(trained_model)
 
-                torch.save(trained_model, os.path.join(output_path, 'GNN_hyperparams_tunning', 'GNN_hyperparams_tunning_model_' + str(hidden_channels) + '_' + str(lr) + '.pt'))
+                torch.save(trained_model, os.path.join(output_path, 'GNN_hyperparams_tuning', 'GNN_hyperparams_tuning_model_' + str(hidden_channels) + '_' + str(lr) + '.pt'))
                     
         time4=time.time()
         lr = best_lr
@@ -172,7 +172,7 @@ if __name__ == '__main__':
                  train_loss_lst=train_loss_lst, val_loss_lst=val_loss_lst, test_loss_lst=test_loss_lst,
                  train_mse_lst=train_mse_lst, val_mse_lst=val_mse_lst, test_mse_lst=test_mse_lst, 
                  train_pcc_lst=train_pcc_lst, val_pcc_lst=val_pcc_lst, test_pcc_lst=test_pcc_lst)
-        best_model_path = os.path.join(output_path, 'GNN_hyperparams_tunning_best_model.pt')
+        best_model_path = os.path.join(output_path, 'GNN_hyperparams_tuning_best_model.pt')
         torch.save(best_model, best_model_path)
 
     # calculate degree and distance matrices
@@ -222,7 +222,7 @@ if __name__ == '__main__':
         time4=time.time()
         ray.shutdown()
         print('time for AP clustering hyperparameter selection (with ray):', time4-time3)
-        np.savez(os.path.join(output_path, 'AP_clustering_hyperparams_tuning_complete.npz'), cluster_params_set=cluster_params_set, 
+        np.savez(os.path.join(output_path, 'AP_clustering_hyperparams_tuning.npz'), cluster_params_set=cluster_params_set, 
                  train_loss_lst=train_loss_lst, val_loss_lst=val_loss_lst, test_loss_lst=test_loss_lst,
                  train_mse_lst=train_mse_lst, val_mse_lst=val_mse_lst, test_mse_lst=test_mse_lst, 
                  train_pcc_lst=train_pcc_lst, val_pcc_lst=val_pcc_lst, test_pcc_lst=test_pcc_lst)
