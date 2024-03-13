@@ -7,7 +7,7 @@ Adaptive Spatial Graph Neural Network (asGNN) is a computational method to predi
 System and package requirements
 --------------------------------------------------------------------------------
 
-The code was developed based on the prevous work available at [Github link](https://github.com/gaoyuanwang1976/GraphPartition_SBGNN) (see also [1]) and tested on a cluster with Linux system with 30 CPUs and 256GB memory.
+The code was developed based on the prevous work available at [Github link](https://github.com/gaoyuanwang1976/GraphPartition_SBGNN) (see [1]) and tested on a cluster with Linux system with 30 CPUs and 256GB memory.
 
 The Python package dependencies are listed in the `gnn_ray.yml`, and the virtual environment can be created by running the following the command:
 ```
