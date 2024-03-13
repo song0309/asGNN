@@ -17,7 +17,7 @@ conda env create -f gnn_ray.yml
 Data preparation
 --------------------------------------------------------------------------------
 
-The breast cancer tissue data used in this study were obtained from the works [2] and [3]. We followed the data preproessing in the study [2] to extract convolutional features and applied the model in the study [4] to derive morphological features for each tissue image, and provided the prepocessed data for holdout and external validation under the folders `data/holdout` and `data/external` separately. 
+The breast cancer tissue data used in this study were obtained from the works [2] and [3]. We followed the data preprocessing in the study [2] to extract convolutional features and applied the model in the study [4] to derive morphological features for each tissue image, and provided the prepocessed data for holdout and external validation under the folders `data/holdout` and `data/external` separately. 
 
 Usage
 --------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ conda activate gnn_ray
 python asGNN_holdout.py -d data/holdout/<features>/section_list.dat --graph_path data/holdout/<features> --partition_ratio '13:5:5' -m 'GTN' --corr -b 8 --transform 'offset' --sample_size 30 -o <result-folder>
 ```
 
-where `<features>` can be replaced with either morphological feature folder `morph` or convolution feature folder `conv`, `<result-folder>` should be specified as the folder where you want to save the models. In the result folder, the hyperparameters for the backbone graph neural network (e.g. # of layers, # of hidden units, or learning rate) and Affinity Propagation (AP) clustering ($\alpha$ and $\beta$) will be saved into `GNN_hyperparams_tuning.npz` and `AP_clustering_hyperparams_tuning.npz`, respectively. The parameters linear meta transformation and GNN models from i-th meta-epoch will be placed under the folder with name `t<i>`.
+where `<features>` can be replaced with either morphological feature folder `morph` or convolution feature folder `conv`, `<result-folder>` should be specified as the folder where you want to save the models. In the result folder, the hyperparameters for the backbone graph neural network (e.g. # of layers, # of hidden units, or learning rate) and Affinity Propagation (AP) clustering ($\alpha$ and $\beta$) will be saved into `GNN_hyperparams_tuning.npz` and `AP_clustering_hyperparams_tuning.npz`, respectively. The parameters for the linear meta transformation and GNN models from i-th meta-epoch will be placed under the folder with name `t<i>`.
   
 Reference
 --------------------------------------------------------------------------------
