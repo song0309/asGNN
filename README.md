@@ -1,13 +1,13 @@
 # asGNN
 
-Adaptive Spatial Graph Neural Network (asGNN) is a computational method to predict spatial gene expression profile from tissue morphorogy such as staining images. Following the framework from the study [1], asGNN applies the smoothing-based variational optimization to search for a spatial graph reflecting actual spatial proximity in gene expression among capturing spots during the training. The learned spatial graph can be further utilized to delineate the spatial domains, facilitating the understanding of the spatial organization within the tissue.
+Adaptive Spatial Graph Neural Network (asGNN) is a computational method to predict spatial gene expression profile from tissue morphorogy such as staining images. The asGNN framework applies smoothing-based variational optimization to search for a spatial graph reflecting actual spatial proximity in gene expression among capturing spots during the training. The learned spatial graph can be further utilized to delineate the spatial domains, facilitating the understanding of the spatial organization within the tissue.
 
 ![](https://github.com/song0309/asGNN/blob/main/figures/asGNN_workflow.png)
 
 System and package requirements
 --------------------------------------------------------------------------------
 
-The code was developed based on the prevous work available at [Github link](https://github.com/gaoyuanwang1976/GraphPartition_SBGNN) and tested on a cluster with Linux system with 30 CPUs and 256GB memory.
+The code was developed based on the prevous work available at [Github link](https://github.com/gaoyuanwang1976/GraphPartition_SBGNN) (see also [1]) and tested on a cluster with Linux system with 30 CPUs and 256GB memory.
 
 The Python package dependencies are listed in the `gnn_ray.yml`, and the virtual environment can be created by running the following the command:
 ```
